@@ -1,0 +1,31 @@
+<div class="main-image">
+  <div class="tentative">
+    <section class="section">  
+      <article class="media">
+        <div class="media-content">
+          <div class="content has-text-centered pt-6">
+            <p>
+              <strong class="is-size-1 has-text-white readability" style="font-family: cursive;">shopgram</strong>
+            </p>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-5 backcolor p-4 is-rounded">
+              <br>
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "login" %>
+              <%= link_to "ログイン", new_user_session_path, class: "button is-info is-fullwidth" %>
+              <br>
+              <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-fullwidth" %>
+            </div>
+          </div>
+          <article class="media">
+            <div id="margin-top" class="is-size-1 has-text-white has-text-weight-bold readability">
+              <p class="is-italic">あなたのおすすめのお店を共有してみよう</p>
+              <br>
+              <p class="is-size-2">shopgramはユーザーがおすすめの飲食店を投稿し、<br>他ユーザーの投稿を自由に閲覧できるグルメ共有サイトです。</p>
+            </div>
+          </article>
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
