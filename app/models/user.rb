@@ -7,10 +7,10 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   def self.guest
-    find_or_create_by!(email: 'aaa@aaa.com') do |user|
+    find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
-      user.username = 'ゲスト'
+      user.username = 'ゲストさん'
     end
   end
 end

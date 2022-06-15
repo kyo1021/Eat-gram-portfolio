@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Shopgram</title>
+  <title>Eat-gram</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -10,82 +10,89 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
     integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
 </head>
 
 <body>
-  <% if flash[:notice] %>
-  <div class="notification is-info">
-    <p class="notice"><%= notice %></p>
-  </div>
-  <% end %>
-  <% if flash[:alert] %>
-  <div class="notification is-danger">
-    <p class="alert"><%= alert %></p>
-  </div>
-  <% end %>
-
-  <nav class="navbar is-link">
-    <div class="navbar-brand">
-      <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-4" style="font-family: cursive;">shopgram</h1>
-      <% end %>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <div id="app">
+    <% if flash[:notice] %>
+    <div class="notification is-info">
+      <p class="notice"><%= notice %></p>
     </div>
+    <% end %>
+    <% if flash[:alert] %>
+    <div class="notification is-danger">
+      <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
 
-  <% if user_signed_in? %>
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
-      <div class="navbar-item">
-        <%= link_to "ショップ一覧", shops_path, class: "navbar-item button is-warning is-light" %>
-      </div>
-      <div class="navbar-item">
-        <%= link_to "ショップ投稿", new_shop_path, class: "navbar-item button is-warning is-light" %>
+    <nav class="navbar is-link">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+        <h1 class="title is-4" style="font-family: cursive;">Eatgram</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample" @click="isOpen = !isOpen" v-bind:class="{'is-active': isOpen}">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
-      <div class="navbar-end">
+    <% if user_signed_in? %>
+      <div id="navbarExampleTransparentExample" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
         <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <%= link_to "ユーザー一覧", users_path, class: " button is-warning is-light" %>
-            </p>
-            <p class="control">
-              <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
-            </p>
-            <p class="control">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-            </p>
+          <%= link_to "ショップ一覧", shops_path, class: "navbar-item button" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "ショップ投稿", new_shop_path, class: "navbar-item button" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "ユーザー一覧", users_path, class: "navbar-item button" %>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <%= link_to "マイページ", user_path(current_user), class: "button" %>
+              </p>
+              <p class="control">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% else %>
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
-      <div class="navbar-item">
-        <%= link_to "ショップ一覧", shops_path, class: "navbar-item button is-warning is-light" %>
-      </div>
-      <div class="navbar-item">
-        <%= link_to "ユーザー一覧", users_path, class: "navbar-item button is-warning is-light" %>
-      </div>
-      <div class="navbar-end">
+    <% else %>
+      <div id="navbarExampleTransparentExample" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
         <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
-            </p>
-            <p class="control">
-              <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
-            </p>
+          <%= link_to "ショップ一覧", shops_path, class: "navbar-item button" %>
+        </div>
+        <div class="navbar-item">
+          <%= link_to "ユーザー一覧", users_path, class: "navbar-item button" %>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <%= link_to "ログイン", new_user_session_path, class: "button" %>
+              </p>
+              <p class="control">
+                <%= link_to "新規登録", new_user_registration_path, class: "button" %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-  </nav>
+    <% end %>
+    </nav>
+  </div>
 
   <%= yield %>
 </body>
 
+<script>app = new Vue({el: '#app', data: {isOpen: false}})</script>
 </html>
+
+
