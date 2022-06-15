@@ -1,24 +1,41 @@
 # README
+<br>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Eat-gram-サイト名称
 
-Things you may want to cover:
+Eat-gramはユーザーがおすすめの飲食店を投稿し、他ユーザーの投稿を自由に閲覧できるグルメ共有サイトです。
+投稿内容を飲食店に限ったインスタグラムをイメージとして作成しました。
 
-* Ruby version
+# Features-サイト機能
 
-* System dependencies
+* ショップの投稿（店名・説明文・画像）
+* 上記に伴う投稿内容の編集/削除機能
+* 投稿されたショップの閲覧
+* 他ユーザーの閲覧
+* マイページの編集
 
-* Configuration
+# Requirement-動作環境
 
-* Database creation
+* Ruby v2.6.8
+* Rails v6.1.5
+* devise(アカウント登録システム)
+* bulma-rails(CSSフレームワーク)
 
-* Database initialization
+# Usage-実行方法
 
-* How to run the test suite
+```bash
+git clone https://github.com/kyo1021/Eat-gram-portfolio.git
+cd Eat-gram-portfolio
+rails db:migrate
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+# Note
+BulmaというCSSのフレームワークを使用して、レスポンシブにも対応させています。
 
-* Deployment instructions
 
-* ...
+# Author-作成者
+
+* kyo1021
+
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/kyo1021/Eat-gram-portfolio">
