@@ -29,15 +29,19 @@ heroku：https://still-crag-73732.herokuapp.com/
 git clone https://github.com/kyo1021/Eat-gram-portfolio.git
 cd Eat-gram-portfolio
 rails db:migrate
+(rails db:seed)→サンプルデータが追加されるだけですので、実行は必須ではないです。
 rails s
 ```
 
 # Note
-BulmaというCSSのフレームワークを使用して、レスポンシブにも対応させています。
-
+CSSフレームワークとしてはBootstrapが有名ですが、Javascript(jQuery）がセットになっているのに対し、
+BULMAはCSSのみのフレームワークで、vue.jsを組み合わせることも自由にできるため今回はこちらを採用いたしました。
 
 # Author-作成者
 
 * kyo1021
+
+# License
+MIT
 
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/kyo1021/Eat-gram-portfolio">
