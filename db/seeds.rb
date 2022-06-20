@@ -8,4 +8,4 @@ user2 = User.create(
 
 user3 = User.create(
   username: "テストユーザー3", email: "test3@example.com", password: "passwordC", profile_image: open("./app/assets/images/icon3.jpg"));
-  Shop.create(title: "テストショップ3", body: "これは美味しいステーキです", image: open("./app/assets/images/shop3.jpg"),user_id:user3.id)
+  Shop.create(title: "テストショップ3", body: "ふわふわオムレツのパスタです", image: open("./app/assets/images/shop3.jpg"),user_id:user3.id)
