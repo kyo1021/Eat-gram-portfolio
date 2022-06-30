@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :shops
+  post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+  resources :favorites, only: [:index]
 end

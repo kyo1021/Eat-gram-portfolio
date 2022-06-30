@@ -20,18 +20,21 @@
           </div>
           <div class="column is-8">
             <table class="table is-fullwidth">
+              <p class="is-size-4 ml-3 pl-1">
+                <strong><%= @user.username %></strong>
+              </p>
               <tr>
-                <td class="is-size-4">
-                  <strong><%= @user.username %></strong>
-                </td>
                 <% if @user.id == current_user.id %>
                 <td class="is-size-4">
                   <%= @user.email %>
                 </td>
                 <td>
-                    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+                  <%= link_to "いいねした店舗一覧", favorites_path(@favorite), class: "button is-primary" %>
                 </td>
-                <% end %>
+                <td>
+                  <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+                </td>
+                <% end %>   
               </tr>
             </table>
             <table class="table is-fullwidth">
